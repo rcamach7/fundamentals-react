@@ -8,6 +8,7 @@ class App extends React.Component {
             squares: Array(3).fill(null),
         }
     }
+
     // @TODO Pass this function to each individual square to call once they are clicked.
     handleClicked(i) {
         const squares = this.state.squares.slice();
@@ -24,8 +25,9 @@ class App extends React.Component {
         return (
             <Square
                 value={this.state.squares[i]}
-                onClick={() => this.handleClicked(i)}
-            />
+                index = {i}
+                onClick={() => this.handleClicked(i)}>
+            </Square>
         );
     }
 
@@ -44,6 +46,7 @@ class App extends React.Component {
 function Square(props) {
     return (
         <button className="square" onClick={props.onClick}>
+            <p>{props.index}</p>
         </button>
     );
 }
