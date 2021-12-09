@@ -10,6 +10,7 @@ class RandoComponents extends React.Component {
         this.generatePokemon = this.generatePokemon.bind(this);
         this.renderPokemon = this.renderPokemon.bind(this);
         this.shuffleArray = this.shuffleArray.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     generatePokemon() {
@@ -18,14 +19,25 @@ class RandoComponents extends React.Component {
 
         let pokemonComponents = [];
         for (let i = 0; i < myPokemons.length; i++) {
-            pokemonComponents.push(this.renderPokemon(myPokemons[i]));
+            pokemonComponents.push(this.renderPokemon(myPokemons[i], i));
         }
         return pokemonComponents;
     }
 
-    renderPokemon(name) {
+    handleClick(name) {
+        // TODO: Add this name 9since it was clicked) into our clicked array stored inside our state. This way we can track who's been clicked by name
+        // TODO: After, evaluate each name, see if it exists in the the state as clicked, and if so, send alert letting user know.
+        // TODO: After, using lifecycle methods, make sure the pokemons are shuffled and re-displayed after every click.
+        alert("Hello, my name is " + name);
+    }
+
+    renderPokemon(name, key) {
         return (
-            <Pokemon className="pokemon" name={name}>
+            <Pokemon
+                className="pokemon" name={name}
+                onClick = {() => this.handleClick(name)}
+                key = {key}
+            >
             </Pokemon>
         )
     }
@@ -52,7 +64,7 @@ class RandoComponents extends React.Component {
 
 const Pokemon = (props) => {
     return (
-        <div className="pokemon">
+        <div className="pokemon" onClick={props.onClick}>
             {props.name}
         </div>
     )
