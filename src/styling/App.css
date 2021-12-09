@@ -1,0 +1,16 @@
+.app {
+    width: 250px;
+    height: 100px;
+
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+
+    border: solid black 2px;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+}
