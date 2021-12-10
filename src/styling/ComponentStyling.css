@@ -17,8 +17,16 @@
 }
 
 .pokemon {
-    width: 100px;
-    height: 50px;
+    width: 400px;
+    height: 500px;
+    text-align: center;
 
     border: solid red 2px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+
+    border: solid black 2px;
 }
